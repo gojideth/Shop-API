@@ -5,7 +5,6 @@ CREATE TABLE "book" (
     "ISBN" TEXT NOT NULL,
     "price" INTEGER NOT NULL,
     "author" TEXT NOT NULL,
-    "published" INTEGER NOT NULL,
     "publisher" TEXT NOT NULL,
     "quantity" INTEGER NOT NULL,
 
@@ -18,8 +17,8 @@ CREATE TABLE "user" (
     "name" VARCHAR(100) NOT NULL,
     "email" VARCHAR(100) NOT NULL,
     "password" VARCHAR(100) NOT NULL,
-    "profilePic" TEXT NOT NULL,
-    "address" VARCHAR(100) NOT NULL,
+    "profilePic" VARCHAR(100),
+    "address" VARCHAR(100),
 
     CONSTRAINT "user_pkey" PRIMARY KEY ("id")
 );

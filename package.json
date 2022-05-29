@@ -4,9 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/"
   },
-  "keywords": [],
+  "keywords": [
+    "Graphql",
+    "Backend",
+    "Prisma",
+    "Postgre",
+    "Docker",
+    "Node.js"
+  ],
   "author": "Gojideth <martinschiquilloc@hotmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -15,6 +22,7 @@
     "graphql": "^16.5.0"
   },
   "devDependencies": {
+    "nodemon": "^2.0.16",
     "prisma": "^3.14.0"
   }
 }
