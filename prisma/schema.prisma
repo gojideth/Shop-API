@@ -18,7 +18,7 @@ model Book {
   author    String  
   publisher String
   quantity  Int
-
+  shoppingCartId ShoppingCart[]
   @@map("book")
 }
 
@@ -31,7 +31,7 @@ model User {
   address      String?        @db.VarChar(100)
   ShoppingCart ShoppingCart[]
   Order        Order[]
-
+  loggedIn     Boolean        @default(false)
   @@map("user")
 }
 
@@ -39,7 +39,8 @@ model ShoppingCart {
   id       Int     @id @default(autoincrement())
   user     User    @relation(fields: [userId], references: [id])
   userId   Int
-  bookId   Int
+  book    Book    @relation(fields: [bookId], references: [id])
+  bookId   Int    
   quantity Int
   Order    Order[]
 
@@ -57,4 +58,16 @@ model Order {
   distribuitor String
 
   @@map("order")
+}
+
+model Product{
+  id        Int    @id @default(autoincrement())
+  name      String @db.VarChar(100)
+  price     Int
+  quantity  Int
+  category  String
+  codeProduct String
+  distributor String
+
+  @@map("product")
 }

@@ -24,6 +24,7 @@ const typeDefs = gql`
     id: ID!
     userId: User!
     bookId: Book!
+    productId: Product
     quantity: Int!
   }
 
@@ -35,6 +36,15 @@ const typeDefs = gql`
     shoppingCarts: [ShoppingCart]
     shoppingCart(id: ID!): ShoppingCart
   }
+  type Product {
+    id: ID!
+    name: String!
+    price: Float!
+    quantity: Int!
+    category: String!
+    codeProduct: String!
+    distributor: String!
+  }
 
   type Mutation {
     addBook(
@@ -45,8 +55,19 @@ const typeDefs = gql`
       publisher: String!
       quantity: Int!
     ): Book
+    
+    addProduct(
+      id: ID!
+      name: String!
+      price: Float!
+      quantity: Int!
+      category: String!
+      codeProduct: String!
+      distributor: String!
+    ): Product
     addUser(name: String!, email: String!, password: String!): User
     addShoppingCart(userId: ID!, bookId: ID!, quantity: Int!): ShoppingCart
+    addProductsCart(productId: ID!, quantity: Int!): ShoppingCart
     updateBook(
       id: ID!
       title: String
@@ -75,7 +96,11 @@ const typeDefs = gql`
     deleteShoppingCart(id: ID!): ShoppingCart
     addInfoUser(id: ID!, profilePic: String!, address: String!): User
     login(email: String!, password: String!): String!
-    updateBookQuantity(id: ID!, quantity: Int!): Book
+    """
+    Update book cuantity
+    """
+    updateBookQuantity(id: ID!, quantity: Int!): String
+    buyBooks(idCart: ID!, idUser:ID!): String
   }
 `;
 
