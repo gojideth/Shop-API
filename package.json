@@ -10,6 +10,7 @@
   "author": "Gojideth <martinschiquilloc@hotmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@prisma/client": "^3.14.0",
     "apollo-server": "^3.8.1",
     "graphql": "^16.5.0"
   },

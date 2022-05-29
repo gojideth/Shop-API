@@ -10,44 +10,51 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Book{
-  id Int @id @default(autoincrement())
-  title String @db.VarChar(100)
-  ISBN String
-  price Int
-  author String
-  published Int
-  publisher String 
-  quantity Int
+model Book {
+  id        Int    @id @default(autoincrement())
+  title     String @db.VarChar(100)
+  ISBN      String
+  price     Int
+  author    String  
+  publisher String
+  quantity  Int
+
   @@map("book")
 }
 
-model User{
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(100)
-  email String @db.VarChar(100) @unique
-  password String @db.VarChar(100)
-  profilePic String
-  address String @db.VarChar(100)
+model User {
+  id           Int            @id @default(autoincrement())
+  name         String         @db.VarChar(100)
+  email        String         @unique @db.VarChar(100)
+  password     String         @db.VarChar(100)
+  profilePic   String         @db.VarChar(100)
+  address      String         @db.VarChar(100)
+  ShoppingCart ShoppingCart[]
+  Order        Order[]
 
   @@map("user")
 }
 
-model ShoppingCart{
-  id Int @id @default(autoincrement())
-  user User @relation(fields: [userId], references: [id])
-  userId Int
-  bookId Int
+model ShoppingCart {
+  id       Int     @id @default(autoincrement())
+  user     User    @relation(fields: [userId], references: [id])
+  userId   Int
+  bookId   Int
   quantity Int
+  Order    Order[]
+
   @@map("shopping_cart")
 }
 
-model Order{
-  id Int @id @default(autoincrement())
-  userId Int 
-  bookId Int
-  cartId Int
-  quantity Int
+model Order {
+  id           Int          @id @default(autoincrement())
+  user         User         @relation(fields: [userId], references: [id])
+  userId       Int
+  bookId       Int
+  cart         ShoppingCart @relation(fields: [cartId], references: [id])
+  cartId       Int
+  quantity     Int
   distribuitor String
+
   @@map("order")
 }
