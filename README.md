@@ -6,8 +6,8 @@ to both entities, register, login and buy products and books.
 
 
 
-## List
-Stack used:
+## Stack used
+
 - GraphQL
 - Node.js
 - PostgreSQL
