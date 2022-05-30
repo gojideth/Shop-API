@@ -31,7 +31,7 @@ Shop-API requires the following to run (I recommend it to run on Linux or WSL2):
 
 [node]: https://nodejs.org/
 [npm]: https://www.npmjs.com/
-[docker]: https://docs.docker.com/desktop/linux/install/ubuntu/
+[docker]: [https://docs.docker.com/desktop/linux/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
 [Docker compose]:https://docs.docker.com/compose/install/
 [npx]:https://www.npmjs.com/package/npx
 ## Run Locally
