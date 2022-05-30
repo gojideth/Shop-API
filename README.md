@@ -68,7 +68,7 @@ Link env variable to Prisma
 ```bash
   npx prisma generate
 ```
-Generate database
+Generate database (only if it is the first time executing the project)
 ```bash
   npx prisma migrate dev --name "init"
 ```
