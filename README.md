@@ -64,6 +64,14 @@ Launch the PostgreSQL database server with the following command
 ```bash
   sudo docker compose up -d
 ```
+Link env variable to Prisma 
+```bash
+  npx prisma generate
+```
+Generate database
+```bash
+  npx prisma migrate dev --name "init"
+```
 
 Once the PostgreSQL database is running go ahead and start the server
 
