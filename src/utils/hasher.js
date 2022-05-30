@@ -20,20 +20,26 @@ let generateSalt = (rounds) => {
     .toString("hex")
     .slice(0, rounds);
 };
-logger(generateSalt(12));
 
+let hasher = (password, salt) => {
+  let hash = crypto.createHmac('sha512', salt);
+  hash.update(password);
+  let value = hash.digest('hex');
+  return {
+      salt: salt,
+      hashedpassword: value
+  };
+};
 let hash = (password, salt) => {
   if (password == null || salt == null) {
-    throw new Error("Must Provide Password and salt values");
+      throw new Error('Must Provide Password and salt values');
   }
-  if (typeof password !== "string" || typeof salt !== "string") {
-    throw new Error(
-      "password must be a string and salt must either be a salt string or a number of rounds"
-    );
+  if (typeof password !== 'string' || typeof salt !== 'string') {
+      throw new Error('password must be a string and salt must either be a salt string or a number of rounds');
   }
   return hasher(password, salt);
 };
-logger(hash("Wisdom", generateSalt(12)));
+
 
 let compare = (password, hash) => { 
   if (password == null || hash == null) {
