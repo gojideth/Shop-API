@@ -3,7 +3,7 @@ dist/
 
 # TypeScript incremental compilation cache
 *.tsbuildinfo
-.env
+
 
 # Logs
 logs

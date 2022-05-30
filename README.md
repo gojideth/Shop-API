@@ -22,10 +22,11 @@ Shop-API requires the following to run (I recommend it to run on Linux or WSL2):
  
 
 
-  * [Node.js][node] v16.14.2
+  * [Node.js][node] v16.14.2 or above, also to install it on [WSL] 
   * [npm][npm] (normally comes with Node.js)
   * [Docker][docker] and [Docker compose]
   * [npx]
+  
 
 
 
@@ -34,6 +35,7 @@ Shop-API requires the following to run (I recommend it to run on Linux or WSL2):
 [docker]: https://docs.docker.com/desktop/linux/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
 [Docker compose]:https://docs.docker.com/compose/install/
 [npx]:https://www.npmjs.com/package/npx
+[WSL]: https://docs.microsoft.com/es-es/windows/dev-environment/javascript/nodejs-on-wsl
 ## Run Locally
 
 Clone the project
@@ -53,11 +55,14 @@ Install dependencies
 ```bash
   npm install
 ```
-
+Start docker process 
+```bash
+  sudo dockerd
+```
 Launch the PostgreSQL database server with the following command
 
 ```bash
-  docker-compose up -d
+  sudo docker compose up -d
 ```
 
 Once the PostgreSQL database is running go ahead and start the server
