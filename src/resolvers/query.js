@@ -31,6 +31,9 @@ const Query = {
       },
     });
   },
+  products: async (parent, args, context, info) => {
+    return await prisma.product.findMany();
+  }
 };
 module.exports = {
   Query,

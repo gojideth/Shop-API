@@ -1,5 +1,5 @@
 const { prisma } = require("../database");
-
+const {hasher, compare} = require("../utils/hasher");
 const Mutation = {
   addBook: async (parent, args, context, info) => {
     return await prisma.book.create({
